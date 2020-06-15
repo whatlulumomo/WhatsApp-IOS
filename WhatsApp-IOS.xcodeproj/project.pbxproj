@@ -1,0 +1,346 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		865FF06B249816EE00E619AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF06A249816EE00E619AB /* AppDelegate.m */; };
+		865FF06E249816EE00E619AB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF06D249816EE00E619AB /* SceneDelegate.m */; };
+		865FF076249816F100E619AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865FF075249816F100E619AB /* Assets.xcassets */; };
+		865FF079249816F100E619AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865FF077249816F100E619AB /* LaunchScreen.storyboard */; };
+		865FF07C249816F100E619AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF07B249816F100E619AB /* main.m */; };
+		865FF0842498183100E619AB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF0822498183100E619AB /* MainViewController.m */; };
+		865FF08724981C6600E619AB /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF08624981C6600E619AB /* ChatTableViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		865FF066249816EE00E619AB /* WhatsApp-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsApp-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		865FF069249816EE00E619AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		865FF06A249816EE00E619AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		865FF06C249816EE00E619AB /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		865FF06D249816EE00E619AB /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		865FF075249816F100E619AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		865FF078249816F100E619AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		865FF07A249816F100E619AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		865FF07B249816F100E619AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		865FF0822498183100E619AB /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = "/Users/geshuaiqi/Desktop/WhatsApp-IOS/WhatsApp-IOS/MainViewController.m"; sourceTree = "<absolute>"; };
+		865FF0832498183100E619AB /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = "/Users/geshuaiqi/Desktop/WhatsApp-IOS/WhatsApp-IOS/MainViewController.h"; sourceTree = "<absolute>"; };
+		865FF08524981C6600E619AB /* ChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
+		865FF08624981C6600E619AB /* ChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		865FF063249816EE00E619AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		865FF05D249816EE00E619AB = {
+			isa = PBXGroup;
+			children = (
+				865FF068249816EE00E619AB /* WhatsApp-IOS */,
+				865FF067249816EE00E619AB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		865FF067249816EE00E619AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				865FF066249816EE00E619AB /* WhatsApp-IOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		865FF068249816EE00E619AB /* WhatsApp-IOS */ = {
+			isa = PBXGroup;
+			children = (
+				865FF069249816EE00E619AB /* AppDelegate.h */,
+				865FF06A249816EE00E619AB /* AppDelegate.m */,
+				865FF06C249816EE00E619AB /* SceneDelegate.h */,
+				865FF06D249816EE00E619AB /* SceneDelegate.m */,
+				865FF0832498183100E619AB /* MainViewController.h */,
+				865FF0822498183100E619AB /* MainViewController.m */,
+				865FF08824981C6B00E619AB /* Cell */,
+				865FF075249816F100E619AB /* Assets.xcassets */,
+				865FF077249816F100E619AB /* LaunchScreen.storyboard */,
+				865FF07A249816F100E619AB /* Info.plist */,
+				865FF07B249816F100E619AB /* main.m */,
+			);
+			path = "WhatsApp-IOS";
+			sourceTree = "<group>";
+		};
+		865FF08824981C6B00E619AB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				865FF08524981C6600E619AB /* ChatTableViewCell.h */,
+				865FF08624981C6600E619AB /* ChatTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		865FF065249816EE00E619AB /* WhatsApp-IOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 865FF07F249816F100E619AB /* Build configuration list for PBXNativeTarget "WhatsApp-IOS" */;
+			buildPhases = (
+				865FF062249816EE00E619AB /* Sources */,
+				865FF063249816EE00E619AB /* Frameworks */,
+				865FF064249816EE00E619AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WhatsApp-IOS";
+			productName = "WhatsApp-IOS";
+			productReference = 865FF066249816EE00E619AB /* WhatsApp-IOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		865FF05E249816EE00E619AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Shuaiqi Ge";
+				TargetAttributes = {
+					865FF065249816EE00E619AB = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = 865FF061249816EE00E619AB /* Build configuration list for PBXProject "WhatsApp-IOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 865FF05D249816EE00E619AB;
+			productRefGroup = 865FF067249816EE00E619AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				865FF065249816EE00E619AB /* WhatsApp-IOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		865FF064249816EE00E619AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				865FF079249816F100E619AB /* LaunchScreen.storyboard in Resources */,
+				865FF076249816F100E619AB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		865FF062249816EE00E619AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				865FF06B249816EE00E619AB /* AppDelegate.m in Sources */,
+				865FF07C249816F100E619AB /* main.m in Sources */,
+				865FF08724981C6600E619AB /* ChatTableViewCell.m in Sources */,
+				865FF06E249816EE00E619AB /* SceneDelegate.m in Sources */,
+				865FF0842498183100E619AB /* MainViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		865FF077249816F100E619AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				865FF078249816F100E619AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		865FF07D249816F100E619AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		865FF07E249816F100E619AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		865FF080249816F100E619AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "WhatsApp-IOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bestoreo.WhatsApp-IOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		865FF081249816F100E619AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "WhatsApp-IOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bestoreo.WhatsApp-IOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		865FF061249816EE00E619AB /* Build configuration list for PBXProject "WhatsApp-IOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				865FF07D249816F100E619AB /* Debug */,
+				865FF07E249816F100E619AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		865FF07F249816F100E619AB /* Build configuration list for PBXNativeTarget "WhatsApp-IOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				865FF080249816F100E619AB /* Debug */,
+				865FF081249816F100E619AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 865FF05E249816EE00E619AB /* Project object */;
+}
