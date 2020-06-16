@@ -13,7 +13,8 @@
 		865FF079249816F100E619AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865FF077249816F100E619AB /* LaunchScreen.storyboard */; };
 		865FF07C249816F100E619AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF07B249816F100E619AB /* main.m */; };
 		865FF0842498183100E619AB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF0822498183100E619AB /* MainViewController.m */; };
-		865FF08724981C6600E619AB /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF08624981C6600E619AB /* ChatTableViewCell.m */; };
+		865FF08724981C6600E619AB /* ContractTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF08624981C6600E619AB /* ContractTableViewCell.m */; };
+		865FF08B2498509500E619AB /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF08A2498509500E619AB /* ChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +29,10 @@
 		865FF07B249816F100E619AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		865FF0822498183100E619AB /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = "/Users/geshuaiqi/Desktop/WhatsApp-IOS/WhatsApp-IOS/MainViewController.m"; sourceTree = "<absolute>"; };
 		865FF0832498183100E619AB /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = "/Users/geshuaiqi/Desktop/WhatsApp-IOS/WhatsApp-IOS/MainViewController.h"; sourceTree = "<absolute>"; };
-		865FF08524981C6600E619AB /* ChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
-		865FF08624981C6600E619AB /* ChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
+		865FF08524981C6600E619AB /* ContractTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContractTableViewCell.h; sourceTree = "<group>"; };
+		865FF08624981C6600E619AB /* ContractTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContractTableViewCell.m; sourceTree = "<group>"; };
+		865FF0892498509500E619AB /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		865FF08A2498509500E619AB /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				865FF06D249816EE00E619AB /* SceneDelegate.m */,
 				865FF0832498183100E619AB /* MainViewController.h */,
 				865FF0822498183100E619AB /* MainViewController.m */,
+				865FF0892498509500E619AB /* ChatViewController.h */,
+				865FF08A2498509500E619AB /* ChatViewController.m */,
 				865FF08824981C6B00E619AB /* Cell */,
 				865FF075249816F100E619AB /* Assets.xcassets */,
 				865FF077249816F100E619AB /* LaunchScreen.storyboard */,
@@ -80,8 +85,8 @@
 		865FF08824981C6B00E619AB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				865FF08524981C6600E619AB /* ChatTableViewCell.h */,
-				865FF08624981C6600E619AB /* ChatTableViewCell.m */,
+				865FF08524981C6600E619AB /* ContractTableViewCell.h */,
+				865FF08624981C6600E619AB /* ContractTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -157,7 +162,8 @@
 			files = (
 				865FF06B249816EE00E619AB /* AppDelegate.m in Sources */,
 				865FF07C249816F100E619AB /* main.m in Sources */,
-				865FF08724981C6600E619AB /* ChatTableViewCell.m in Sources */,
+				865FF08B2498509500E619AB /* ChatViewController.m in Sources */,
+				865FF08724981C6600E619AB /* ContractTableViewCell.m in Sources */,
 				865FF06E249816EE00E619AB /* SceneDelegate.m in Sources */,
 				865FF0842498183100E619AB /* MainViewController.m in Sources */,
 			);

@@ -7,7 +7,8 @@
 //
 
 #import "MainViewController.h"
-#import "ChatTableViewCell.h"
+#import "ContractTableViewCell.h"
+#import "ChatViewController.h"
 
 @interface MainViewController ()
 
@@ -49,16 +50,19 @@ NSString *cellId = @"cellId";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId forIndexPath: indexPath];
-//    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-//    cell.textLabel.text = self.courses[indexPath.row].name;
-//    cell.detailTextLabel.text = [self.courses[indexPath.row].numOfLesson stringValue];
-//    cell.imageView.image = [UIImage imageNamed:@"redhouse"];
-    ChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    ContractTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[ChatTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell = [[ContractTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
+    [cell.avatarImageView setImage:[UIImage imageNamed:@"pikachu"]];
     return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%zd", indexPath.row);
+    ChatViewController *viewController = [[ChatViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

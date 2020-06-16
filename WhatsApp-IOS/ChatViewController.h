@@ -1,5 +1,5 @@
 //
-//  ChatTableViewCell.h
+//  ChatViewController.h
 //  WhatsApp-IOS
 //
 //  Created by 葛帅琦 on 6/15/20.
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChatTableViewCell : UITableViewCell {
-    NSString *reuseID;
-}
+@interface ChatViewController : UIViewController
 
 @end
 
