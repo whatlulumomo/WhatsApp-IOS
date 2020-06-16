@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UITableViewController
+@interface ContractViewController : UITableViewController
 
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "SceneDelegate.h"
-#import "MainViewController.h"
+#import "ContractViewController.h"
+#import "HomeViewController.h"
 
 @interface SceneDelegate ()
 
@@ -23,7 +24,8 @@
     }
     self.window = [[UIWindow alloc] initWithFrame:windowScene.coordinateSpace.bounds];
     self.window.windowScene = windowScene;
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: MainViewController.new];
+//    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: ContractViewController.new];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: HomeViewController.new];
     [self.window makeKeyAndVisible];
 }
 
