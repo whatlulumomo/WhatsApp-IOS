@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIHighlightButton : UIButton
-
+@property (strong, nonatomic) UIColor* normalColor;
+@property (strong, nonatomic) UIColor* highlightColor;
 @end
 
 NS_ASSUME_NONNULL_END

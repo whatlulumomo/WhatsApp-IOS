@@ -7,6 +7,7 @@
 //
 
 #import "ChatViewController.h"
+#import "Color.h"
 
 @interface ChatViewController ()
 
@@ -26,7 +27,7 @@
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self.navigationController
                                                                   action:@selector(popViewControllerAnimated:)];
-    [backButton setTintColor: UIColor.whiteColor];
+    [backButton setTintColor: WhiteColor];
     
     // profile avatar
     UIButton *avatarButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
@@ -46,7 +47,7 @@
                                                                      style:UIBarButtonItemStylePlain
                                                                     target:nil
                                                                     action:nil];
-    [nameLabelButton setTintColor:UIColor.whiteColor];
+    [nameLabelButton setTintColor:WhiteColor];
     
     self.navigationItem.leftBarButtonItems = @[backButton, barButton, nameLabelButton];
     
@@ -54,7 +55,7 @@
                                                                   style:UIBarButtonItemStylePlain
                                                                  target:self
                                                                  action: nil];
-    [searchBtn setTintColor: UIColor.whiteColor];
+    [searchBtn setTintColor: WhiteColor];
     self.navigationItem.rightBarButtonItem = searchBtn;
 }
 

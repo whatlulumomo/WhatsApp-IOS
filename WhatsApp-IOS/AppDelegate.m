@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Color.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [UINavigationBar appearance].translucent = NO;
-    [[UINavigationBar appearance] setBarTintColor: [UIColor colorWithRed:6/255.0 green:95/255.0 blue:84/255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor: DarkTealGreenColor];
     return YES;
 }
 

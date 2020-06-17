@@ -11,7 +11,6 @@
 #import "ChatViewController.h"
 
 @interface ContractTableViewController ()
-
 @end
 
 NSString *cellId = @"cellId";
@@ -25,7 +24,7 @@ NSString *cellId = @"cellId";
 
 - (void) setupView {
     [self.view setBackgroundColor: UIColor.whiteColor];
-    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.separatorColor = [UIColor clearColor]; // remove seprator
     self.tableView.rowHeight = 80;
     
     UILabel* label = UILabel.new;

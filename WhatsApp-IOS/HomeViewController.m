@@ -8,22 +8,24 @@
 
 #import "HomeViewController.h"
 #import "HighlightButtonView.h"
-#import "PageViewController.h"
+#import "UIHighlightButton.h"
 #import "ContractTableViewController.h"
 #import "PopoverViewController.h"
+#import "Color.h"
 
 
 @interface HomeViewController ()
 @property UIView* navigatorView;
 @property UIView* displayView;
-@property NSArray<NSString *> *dataSources;
+@property NSArray<NSString *> *pageStatus;
 @property NSArray<HighlightButtonView *> *navigatorButtonViews;
 @end
 
 @implementation HomeViewController
 
 NSInteger currentViewControllerIndex = 0;
-PageViewController *pageViewController;
+UIPageViewController *pageViewController;
+UIHighlightButton *button;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -35,7 +37,7 @@ PageViewController *pageViewController;
 }
 
 - (void) setupView {
-    [self.view setBackgroundColor: UIColor.whiteColor];
+    [self.view setBackgroundColor: WhiteColor];
     [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];    // remove the bottom line of navigation bar
     
     [self setNavigationBarLeftButtons];  // navigation Whatsapp leftBarButtonItem
@@ -44,12 +46,44 @@ PageViewController *pageViewController;
     [self initNavigatorView];
     [self initDisplayView];
     [self configConstrains];
+    [self setFloatButton];
+}
+
+- (void) setFloatButton {
+    const NSInteger radius = 30;
+    button = UIHighlightButton.new;
+    // set default image
+    [button setImage:[UIImage imageNamed:@"ic_message"] forState: UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"ic_message"] forState: UIControlStateHighlighted];
+    [button setImageEdgeInsets: UIEdgeInsetsMake(15, 15, 15, 15)];
+    [button setFrame: CGRectMake(0, 0, radius*2, radius*2)];
+    // set color
+    [button setBackgroundColor: LightGreenColor];
+    button.normalColor = LightGreenColor;
+    button.highlightColor = HighlightLightGreenColor;
+    [button setTintColor: WhiteColor];
+    // set zposition of view and corner radius
+    [button.layer setZPosition: 1];
+    button.layer.cornerRadius = radius;
+    // add shadow of button
+    [button.layer setShadowOffset:CGSizeMake(2, 2)];
+    [button.layer setShadowColor:[[UIColor grayColor] CGColor]];
+    [button.layer setShadowOpacity:0.4];
+    // set target and action of button
+    [button addTarget:self action:@selector(tapFloatButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview: button];
+    [button setTranslatesAutoresizingMaskIntoConstraints: NO];
+    [self.view addConstraint: [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:radius*2]];
+    [self.view addConstraint: [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:radius*2]];
+    [self.view addConstraint: [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:-30]];
+    [self.view addConstraint: [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-30]];
 }
 
 - (void) setNavigationBarLeftButtons {
     UILabel* label = UILabel.new;
     [label setText: @"WhatsApp"];
-    [label setTextColor: UIColor.whiteColor];
+    [label setTextColor: WhiteColor];
     [label setFont: [UIFont boldSystemFontOfSize:22]];
     label.textAlignment = NSTextAlignmentLeft;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:label];
@@ -57,16 +91,16 @@ PageViewController *pageViewController;
 
 - (void) setNavigationBarRightButtons {
     UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"magnifyingglass"] style:UIBarButtonItemStylePlain target:self action:nil];
-    [searchButton setTintColor: UIColor.whiteColor];
+    [searchButton setTintColor: WhiteColor];
     UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icons-more"] style:UIBarButtonItemStylePlain target:self action:@selector(tapPopoverMenu:)];
-    [moreButton setTintColor: UIColor.whiteColor];
+    [moreButton setTintColor: WhiteColor];
     self.navigationItem.rightBarButtonItems = @[moreButton, searchButton];
 }
 
 - (void) initNavigatorView {
     _navigatorView = UIView.new;
     [_navigatorView.layer setBorderWidth: 0];
-    [_navigatorView setBackgroundColor: [UIColor colorWithRed:6/255.0 green:95/255.0 blue:84/255.0 alpha:1.0]];
+    [_navigatorView setBackgroundColor: DarkTealGreenColor];
     [_navigatorView setTranslatesAutoresizingMaskIntoConstraints: NO];
     
     // setup shadow below the navigator view
@@ -81,7 +115,7 @@ PageViewController *pageViewController;
     
     HighlightButtonView *navigatorCameraButtonView = HighlightButtonView.new;
     [navigatorCameraButtonView.labelButton setImage:[UIImage systemImageNamed:@"camera"] forState:UIControlStateNormal];
-    [navigatorCameraButtonView.labelButton setTintColor:UIColor.whiteColor];
+    [navigatorCameraButtonView.labelButton setTintColor: WhiteColor];
     [navigatorCameraButtonView setTranslatesAutoresizingMaskIntoConstraints: NO];
     
     HighlightButtonView *navigatorChatsButtonView = HighlightButtonView.new;
@@ -138,14 +172,14 @@ PageViewController *pageViewController;
 
 
 - (void) initDisplayView {
-    _dataSources = @[@"Camera", @"Chats", @"Status", @"Calls"];
+    _pageStatus = @[@"Camera", @"Chats", @"Status", @"Calls"];
     
     _displayView = UIView.new;
-    [_displayView setBackgroundColor:[UIColor redColor]];
+    [_displayView setBackgroundColor: WhiteColor];
     [_displayView setTranslatesAutoresizingMaskIntoConstraints: NO];
     [self.view addSubview:_displayView];
     
-    pageViewController = [[PageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     pageViewController.delegate = self;
     pageViewController.dataSource = self;
     
@@ -170,7 +204,7 @@ PageViewController *pageViewController;
 
 
 - (UIViewController *) detailViewControllerAt: (NSInteger) index {
-    if(index >= [_dataSources count]){
+    if(index >= [_pageStatus count]){
         return nil;
     }
     
@@ -208,7 +242,7 @@ PageViewController *pageViewController;
     ContractTableViewController *vc = (ContractTableViewController*)viewController;
     NSInteger currentIndex = vc.view.tag;
     currentIndex += 1;
-    if (currentIndex == [_dataSources count]) {
+    if (currentIndex == [_pageStatus count]) {
         return nil;
     }
     return [self detailViewControllerAt:currentIndex];
@@ -217,7 +251,21 @@ PageViewController *pageViewController;
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     if (completed && pageViewController.viewControllers.count != 0){
         currentViewControllerIndex = pageViewController.viewControllers[0].view.tag;
+        [self updateFloatButton];
         [self focusHighlightButtonView:currentViewControllerIndex];
+    }
+}
+
+- (void) updateFloatButton {
+    if([_pageStatus[currentViewControllerIndex] isEqualToString:@"Status"]) {
+        [button setImage:[UIImage imageNamed:@"ic_camera"] forState: UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"ic_camera"] forState: UIControlStateHighlighted];
+    } else if ([_pageStatus[currentViewControllerIndex] isEqualToString:  @"Calls"]) {
+        [button setImage:[UIImage imageNamed:@"ic_full_call"] forState: UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"ic_full_call"] forState: UIControlStateHighlighted];
+    } else {
+        [button setImage:[UIImage imageNamed:@"ic_message"] forState: UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"ic_message"] forState: UIControlStateHighlighted];
     }
 }
 
@@ -226,23 +274,31 @@ PageViewController *pageViewController;
     UIView *view = sender.view;
     NSInteger index = view.tag;
     if (index != currentViewControllerIndex){
+        // page moving direction depends on relative position of current page and target page
+        UIPageViewControllerNavigationDirection direction = index > currentViewControllerIndex ?
+        UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
         currentViewControllerIndex = index;
         UIViewController *vc = [self detailViewControllerAt: index];
-        [pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+        [self focusHighlightButtonView:currentViewControllerIndex];
+        [self updateFloatButton];
+        [pageViewController setViewControllers:@[vc] direction:direction animated:YES completion:nil];
     }
+}
+
+- (void) tapFloatButton: (UITapGestureRecognizer*)sender {
+    NSLog(@"tapFloatButton");
 }
 
 - (void) focusHighlightButtonView: (NSInteger) index {
     for(int i=0; i<[_navigatorButtonViews count]; i++){
-        [_navigatorButtonViews[i].highlightLine setBackgroundColor:[UIColor colorWithRed:6/255.0 green:95/255.0 blue:84/255.0 alpha:1.0]];
+        [_navigatorButtonViews[i].highlightLine setBackgroundColor: DarkTealGreenColor];
     }
-    [_navigatorButtonViews[index].highlightLine setBackgroundColor: UIColor.whiteColor];
+    [_navigatorButtonViews[index].highlightLine setBackgroundColor: WhiteColor];
 }
 
 - (void) tapPopoverMenu: (UITapGestureRecognizer*)sender {
     NSLog(@"Pop Over");
     UIViewController* controller = PopoverViewController.new; // your initialization goes here
-//    [controller.view setBackgroundColor: UIColor.whiteColor];
 
     // set modal presentation style to popover on your view controller
     // must be done before you reference controller.popoverPresentationController

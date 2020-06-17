@@ -24,7 +24,6 @@
     }
     self.window = [[UIWindow alloc] initWithFrame:windowScene.coordinateSpace.bounds];
     self.window.windowScene = windowScene;
-//    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: ContractViewController.new];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: HomeViewController.new];
     [self.window makeKeyAndVisible];
 }
