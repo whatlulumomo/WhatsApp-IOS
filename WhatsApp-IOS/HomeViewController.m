@@ -10,6 +10,8 @@
 #import "HighlightButtonView.h"
 #import "PageViewController.h"
 #import "ContractTableViewController.h"
+#import "PopoverViewController.h"
+
 
 @interface HomeViewController ()
 @property UIView* navigatorView;
@@ -56,7 +58,7 @@ PageViewController *pageViewController;
 - (void) setNavigationBarRightButtons {
     UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"magnifyingglass"] style:UIBarButtonItemStylePlain target:self action:nil];
     [searchButton setTintColor: UIColor.whiteColor];
-    UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icons-more"] style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icons-more"] style:UIBarButtonItemStylePlain target:self action:@selector(tapPopoverMenu:)];
     [moreButton setTintColor: UIColor.whiteColor];
     self.navigationItem.rightBarButtonItems = @[moreButton, searchButton];
 }
@@ -235,6 +237,34 @@ PageViewController *pageViewController;
         [_navigatorButtonViews[i].highlightLine setBackgroundColor:[UIColor colorWithRed:6/255.0 green:95/255.0 blue:84/255.0 alpha:1.0]];
     }
     [_navigatorButtonViews[index].highlightLine setBackgroundColor: UIColor.whiteColor];
+}
+
+- (void) tapPopoverMenu: (UITapGestureRecognizer*)sender {
+    NSLog(@"Pop Over");
+    UIViewController* controller = PopoverViewController.new; // your initialization goes here
+//    [controller.view setBackgroundColor: UIColor.whiteColor];
+
+    // set modal presentation style to popover on your view controller
+    // must be done before you reference controller.popoverPresentationController
+    controller.modalPresentationStyle = UIModalPresentationPopover;
+    controller.preferredContentSize = CGSizeMake(180, 200);
+
+    // configure popover style & delegate
+    UIPopoverPresentationController *popover =  controller.popoverPresentationController;
+    popover.delegate = self;
+    popover.sourceView = sender.view;
+    popover.sourceRect = CGRectMake(sender.view.center.x,sender.view.center.y,0,0);
+    popover.permittedArrowDirections = 0;
+
+    // display the controller in the usual way
+    [self presentViewController:controller animated:YES completion:^{
+        NSLog(@"finish");
+        controller.view.superview.layer.cornerRadius = 0;
+    }];
+}
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone;
 }
 
 @end

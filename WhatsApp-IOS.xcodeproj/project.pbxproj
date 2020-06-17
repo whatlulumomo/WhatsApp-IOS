@@ -19,6 +19,7 @@
 		865FF09A24995B6E00E619AB /* UIHighlightButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF09924995B6E00E619AB /* UIHighlightButton.m */; };
 		865FF09B249961D800E619AB /* HighlightButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF09324994A8400E619AB /* HighlightButtonView.m */; };
 		865FF09E2499675000E619AB /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF09D2499675000E619AB /* PageViewController.m */; };
+		86E40A2F2499C25B0056F598 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A2E2499C25B0056F598 /* PopoverViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		865FF09924995B6E00E619AB /* UIHighlightButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIHighlightButton.m; sourceTree = "<group>"; };
 		865FF09C2499675000E619AB /* PageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		865FF09D2499675000E619AB /* PageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
+		86E40A2D2499C25B0056F598 /* PopoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
+		86E40A2E2499C25B0056F598 /* PopoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				865FF09324994A8400E619AB /* HighlightButtonView.m */,
 				865FF09824995B6E00E619AB /* UIHighlightButton.h */,
 				865FF09924995B6E00E619AB /* UIHighlightButton.m */,
+				86E40A2D2499C25B0056F598 /* PopoverViewController.h */,
+				86E40A2E2499C25B0056F598 /* PopoverViewController.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				865FF09B249961D800E619AB /* HighlightButtonView.m in Sources */,
 				865FF06B249816EE00E619AB /* AppDelegate.m in Sources */,
 				865FF07C249816F100E619AB /* main.m in Sources */,
+				86E40A2F2499C25B0056F598 /* PopoverViewController.m in Sources */,
 				865FF09E2499675000E619AB /* PageViewController.m in Sources */,
 				865FF09A24995B6E00E619AB /* UIHighlightButton.m in Sources */,
 				865FF08B2498509500E619AB /* ChatViewController.m in Sources */,
