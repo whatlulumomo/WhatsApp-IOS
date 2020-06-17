@@ -25,6 +25,7 @@ NSString *cellId = @"cellId";
 
 - (void) setupView {
     [self.view setBackgroundColor: UIColor.whiteColor];
+    self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.rowHeight = 80;
     
     UILabel* label = UILabel.new;

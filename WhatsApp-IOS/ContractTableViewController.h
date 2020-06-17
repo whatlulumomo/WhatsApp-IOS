@@ -10,7 +10,5 @@
 
 @interface ContractTableViewController : UITableViewController
 
-@property int index;
-
 @end
 

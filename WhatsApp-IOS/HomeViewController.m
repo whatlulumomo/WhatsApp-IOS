@@ -66,6 +66,15 @@ PageViewController *pageViewController;
     [_navigatorView.layer setBorderWidth: 0];
     [_navigatorView setBackgroundColor: [UIColor colorWithRed:6/255.0 green:95/255.0 blue:84/255.0 alpha:1.0]];
     [_navigatorView setTranslatesAutoresizingMaskIntoConstraints: NO];
+    
+    // setup shadow below the navigator view
+    _navigatorView.layer.shadowColor = [UIColor grayColor].CGColor;
+    _navigatorView.layer.shadowOffset = CGSizeMake(0, 1);
+    _navigatorView.layer.shadowOpacity = 0.5;
+    _navigatorView.layer.shadowRadius = 1.0;
+    _navigatorView.layer.masksToBounds = NO;
+    _navigatorView.layer.zPosition = 1;
+
     [self.view addSubview:_navigatorView];
     
     HighlightButtonView *navigatorCameraButtonView = HighlightButtonView.new;
@@ -150,6 +159,7 @@ PageViewController *pageViewController;
     
     ContractTableViewController *startingViewController = (ContractTableViewController*)[self detailViewControllerAt:currentViewControllerIndex];
     startingViewController.view.tag = 0;
+    [self focusHighlightButtonView: 0];
     if(startingViewController == nil){
         return;
     }
@@ -174,6 +184,7 @@ PageViewController *pageViewController;
 // The page control is only displayed if the datasource implements the following two methods:
 
 //- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+//    [self focusHighlightButtonView: currentViewControllerIndex];
 //    return currentViewControllerIndex;
 //}
 //
@@ -184,29 +195,46 @@ PageViewController *pageViewController;
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     ContractTableViewController *vc = (ContractTableViewController*)viewController;
     NSInteger currentIndex = vc.view.tag;
-    if (currentIndex == 0) {
+    currentIndex -= 1;
+    if (currentIndex < 0) {
         return nil;
     }
-    currentIndex -= 1;
-    currentViewControllerIndex = currentIndex;
     return [self detailViewControllerAt:currentIndex];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     ContractTableViewController *vc = (ContractTableViewController*)viewController;
     NSInteger currentIndex = vc.view.tag;
+    currentIndex += 1;
     if (currentIndex == [_dataSources count]) {
         return nil;
     }
-    currentIndex += 1;
-    currentViewControllerIndex = currentIndex;
     return [self detailViewControllerAt:currentIndex];
 }
 
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
+    if (completed && pageViewController.viewControllers.count != 0){
+        currentViewControllerIndex = pageViewController.viewControllers[0].view.tag;
+        [self focusHighlightButtonView:currentViewControllerIndex];
+    }
+}
+
 - (void) tapHighlightButton: (UITapGestureRecognizer*)sender {
+    NSLog(@"%zd", currentViewControllerIndex);
     UIView *view = sender.view;
-    UIViewController *vc = [self detailViewControllerAt:view.tag];
-    [pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    NSInteger index = view.tag;
+    if (index != currentViewControllerIndex){
+        currentViewControllerIndex = index;
+        UIViewController *vc = [self detailViewControllerAt: index];
+        [pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    }
+}
+
+- (void) focusHighlightButtonView: (NSInteger) index {
+    for(int i=0; i<[_navigatorButtonViews count]; i++){
+        [_navigatorButtonViews[i].highlightLine setBackgroundColor:[UIColor colorWithRed:6/255.0 green:95/255.0 blue:84/255.0 alpha:1.0]];
+    }
+    [_navigatorButtonViews[index].highlightLine setBackgroundColor: UIColor.whiteColor];
 }
 
 @end
