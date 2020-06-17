@@ -6,23 +6,21 @@
 //  Copyright © 2020 Shuaiqi Ge. All rights reserved.
 //
 
-#import "ContractViewController.h"
+#import "ContractTableViewController.h"
 #import "ContractTableViewCell.h"
 #import "ChatViewController.h"
 
-@interface ContractViewController ()
+@interface ContractTableViewController ()
 
 @end
 
 NSString *cellId = @"cellId";
 
-@implementation ContractViewController
+@implementation ContractTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
     [self setupView];
-    
 }
 
 - (void) setupView {

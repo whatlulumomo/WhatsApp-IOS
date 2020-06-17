@@ -12,12 +12,13 @@
 		865FF076249816F100E619AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865FF075249816F100E619AB /* Assets.xcassets */; };
 		865FF079249816F100E619AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865FF077249816F100E619AB /* LaunchScreen.storyboard */; };
 		865FF07C249816F100E619AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF07B249816F100E619AB /* main.m */; };
-		865FF0842498183100E619AB /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF0822498183100E619AB /* ContractViewController.m */; };
+		865FF0842498183100E619AB /* ContractTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF0822498183100E619AB /* ContractTableViewController.m */; };
 		865FF08724981C6600E619AB /* ContractTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF08624981C6600E619AB /* ContractTableViewCell.m */; };
 		865FF08B2498509500E619AB /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF08A2498509500E619AB /* ChatViewController.m */; };
 		865FF091249930A400E619AB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF090249930A400E619AB /* HomeViewController.m */; };
 		865FF09A24995B6E00E619AB /* UIHighlightButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF09924995B6E00E619AB /* UIHighlightButton.m */; };
 		865FF09B249961D800E619AB /* HighlightButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF09324994A8400E619AB /* HighlightButtonView.m */; };
+		865FF09E2499675000E619AB /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF09D2499675000E619AB /* PageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +31,8 @@
 		865FF078249816F100E619AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		865FF07A249816F100E619AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		865FF07B249816F100E619AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		865FF0822498183100E619AB /* ContractViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ContractViewController.m; path = "/Users/geshuaiqi/Desktop/WhatsApp-IOS/WhatsApp-IOS/ContractViewController.m"; sourceTree = "<absolute>"; };
-		865FF0832498183100E619AB /* ContractViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContractViewController.h; path = "/Users/geshuaiqi/Desktop/WhatsApp-IOS/WhatsApp-IOS/ContractViewController.h"; sourceTree = "<absolute>"; };
+		865FF0822498183100E619AB /* ContractTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ContractTableViewController.m; path = "/Users/geshuaiqi/Desktop/WhatsApp-IOS/WhatsApp-IOS/ContractTableViewController.m"; sourceTree = "<absolute>"; };
+		865FF0832498183100E619AB /* ContractTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContractTableViewController.h; path = "/Users/geshuaiqi/Desktop/WhatsApp-IOS/WhatsApp-IOS/ContractTableViewController.h"; sourceTree = "<absolute>"; };
 		865FF08524981C6600E619AB /* ContractTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContractTableViewCell.h; sourceTree = "<group>"; };
 		865FF08624981C6600E619AB /* ContractTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContractTableViewCell.m; sourceTree = "<group>"; };
 		865FF0892498509500E619AB /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
@@ -42,6 +43,8 @@
 		865FF09324994A8400E619AB /* HighlightButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HighlightButtonView.m; sourceTree = "<group>"; };
 		865FF09824995B6E00E619AB /* UIHighlightButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIHighlightButton.h; sourceTree = "<group>"; };
 		865FF09924995B6E00E619AB /* UIHighlightButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIHighlightButton.m; sourceTree = "<group>"; };
+		865FF09C2499675000E619AB /* PageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		865FF09D2499675000E619AB /* PageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +83,12 @@
 				865FF06D249816EE00E619AB /* SceneDelegate.m */,
 				865FF08F249930A400E619AB /* HomeViewController.h */,
 				865FF090249930A400E619AB /* HomeViewController.m */,
-				865FF0832498183100E619AB /* ContractViewController.h */,
-				865FF0822498183100E619AB /* ContractViewController.m */,
+				865FF0832498183100E619AB /* ContractTableViewController.h */,
+				865FF0822498183100E619AB /* ContractTableViewController.m */,
 				865FF0892498509500E619AB /* ChatViewController.h */,
 				865FF08A2498509500E619AB /* ChatViewController.m */,
+				865FF09C2499675000E619AB /* PageViewController.h */,
+				865FF09D2499675000E619AB /* PageViewController.m */,
 				865FF08824981C6B00E619AB /* Components */,
 				865FF075249816F100E619AB /* Assets.xcassets */,
 				865FF077249816F100E619AB /* LaunchScreen.storyboard */,
@@ -178,12 +183,13 @@
 				865FF09B249961D800E619AB /* HighlightButtonView.m in Sources */,
 				865FF06B249816EE00E619AB /* AppDelegate.m in Sources */,
 				865FF07C249816F100E619AB /* main.m in Sources */,
+				865FF09E2499675000E619AB /* PageViewController.m in Sources */,
 				865FF09A24995B6E00E619AB /* UIHighlightButton.m in Sources */,
 				865FF08B2498509500E619AB /* ChatViewController.m in Sources */,
 				865FF08724981C6600E619AB /* ContractTableViewCell.m in Sources */,
 				865FF06E249816EE00E619AB /* SceneDelegate.m in Sources */,
 				865FF091249930A400E619AB /* HomeViewController.m in Sources */,
-				865FF0842498183100E619AB /* ContractViewController.m in Sources */,
+				865FF0842498183100E619AB /* ContractTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

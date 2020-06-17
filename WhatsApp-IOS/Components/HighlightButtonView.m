@@ -11,10 +11,6 @@
 
 @implementation HighlightButtonView
 
-- (void) hello {
-    NSLog(@"hello");
-}
-
 - (instancetype)init
 {
     self = [super init];
@@ -28,9 +24,6 @@
         [_labelButton setTitle:@"" forState:UIControlStateNormal];
         [_labelButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
         [_labelButton.titleLabel setFont: [UIFont boldSystemFontOfSize:16]];
-        
-        [_labelButton addTarget:self action:@selector(hello) forControlEvents:UIControlEventTouchUpInside];
-        
         _highlightLine = UIView.new;
         [_highlightLine setTranslatesAutoresizingMaskIntoConstraints: NO];
         [_highlightLine setBackgroundColor: UIColor.whiteColor];

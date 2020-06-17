@@ -8,13 +8,24 @@
 
 #import "HomeViewController.h"
 #import "HighlightButtonView.h"
+#import "PageViewController.h"
+#import "ContractTableViewController.h"
 
 @interface HomeViewController ()
 @property UIView* navigatorView;
 @property UIView* displayView;
+@property NSArray<NSString *> *dataSources;
+@property NSArray<HighlightButtonView *> *navigatorButtonViews;
 @end
 
 @implementation HomeViewController
+
+NSInteger currentViewControllerIndex = 0;
+PageViewController *pageViewController;
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -79,6 +90,14 @@
     [_navigatorView addSubview: navigatorStatusButtonView];
     [_navigatorView addSubview: navigatorCallsButtonView];
     
+    _navigatorButtonViews = @[navigatorCameraButtonView, navigatorChatsButtonView, navigatorStatusButtonView, navigatorCallsButtonView];
+    for(int i=0; i<[_navigatorButtonViews count]; i++){
+        UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(tapHighlightButton:)];
+        [_navigatorButtonViews[i].labelButton addGestureRecognizer:singleFingerTap];
+        _navigatorButtonViews[i].labelButton.tag = i;
+    }
+    
     [_navigatorView addConstraint:[NSLayoutConstraint constraintWithItem:navigatorCameraButtonView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:42]];
     [_navigatorView addConstraint:[NSLayoutConstraint constraintWithItem:navigatorCameraButtonView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_navigatorView attribute:NSLayoutAttributeHeight multiplier:1 constant:0]];
     [_navigatorView addConstraint:[NSLayoutConstraint constraintWithItem:navigatorCameraButtonView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_navigatorView attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
@@ -96,13 +115,6 @@
     [_navigatorView addConstraint:[NSLayoutConstraint constraintWithItem:navigatorCallsButtonView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:navigatorStatusButtonView attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
 }
 
-- (void) initDisplayView {
-    _displayView = UIView.new;
-    [_displayView setBackgroundColor:[UIColor redColor]];
-    [_displayView setTranslatesAutoresizingMaskIntoConstraints: NO];
-    [self.view addSubview:_displayView];
-}
-
 - (void) configConstrains {
     NSDictionary *binding = @{
         @"nav" : _navigatorView,
@@ -111,6 +123,90 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[nav]-0-|" options:0 metrics:nil views:binding]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[view]-0-|" options:0 metrics:nil views:binding]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[nav(==54)]-0-[view]-0-|" options:0 metrics:nil views:binding]];
+}
+
+
+- (void) initDisplayView {
+    _dataSources = @[@"Camera", @"Chats", @"Status", @"Calls"];
+    
+    _displayView = UIView.new;
+    [_displayView setBackgroundColor:[UIColor redColor]];
+    [_displayView setTranslatesAutoresizingMaskIntoConstraints: NO];
+    [self.view addSubview:_displayView];
+    
+    pageViewController = [[PageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    pageViewController.delegate = self;
+    pageViewController.dataSource = self;
+    
+    [self addChildViewController: pageViewController];
+    [pageViewController didMoveToParentViewController: self];
+    [pageViewController.view setTranslatesAutoresizingMaskIntoConstraints: NO];
+    [_displayView addSubview:pageViewController.view];
+    
+    [_displayView addConstraint: [NSLayoutConstraint constraintWithItem:pageViewController.view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_displayView attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
+    [_displayView addConstraint: [NSLayoutConstraint constraintWithItem:pageViewController.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_displayView attribute:NSLayoutAttributeHeight multiplier:1 constant:0]];
+    [_displayView addConstraint: [NSLayoutConstraint constraintWithItem:pageViewController.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:_displayView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    [_displayView addConstraint: [NSLayoutConstraint constraintWithItem:pageViewController.view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_displayView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+    
+    ContractTableViewController *startingViewController = (ContractTableViewController*)[self detailViewControllerAt:currentViewControllerIndex];
+    startingViewController.view.tag = 0;
+    if(startingViewController == nil){
+        return;
+    }
+    [pageViewController setViewControllers:@[startingViewController] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+}
+
+
+- (UIViewController *) detailViewControllerAt: (NSInteger) index {
+    if(index >= [_dataSources count]){
+        return nil;
+    }
+    
+    ContractTableViewController *detailViewController = ContractTableViewController.new;
+    if(detailViewController == nil){
+        return nil;
+    }
+    
+    detailViewController.view.tag = index;
+    
+    return detailViewController;
+}
+// The page control is only displayed if the datasource implements the following two methods:
+
+//- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+//    return currentViewControllerIndex;
+//}
+//
+//- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+//    return [_dataSources count];
+//}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    ContractTableViewController *vc = (ContractTableViewController*)viewController;
+    NSInteger currentIndex = vc.view.tag;
+    if (currentIndex == 0) {
+        return nil;
+    }
+    currentIndex -= 1;
+    currentViewControllerIndex = currentIndex;
+    return [self detailViewControllerAt:currentIndex];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    ContractTableViewController *vc = (ContractTableViewController*)viewController;
+    NSInteger currentIndex = vc.view.tag;
+    if (currentIndex == [_dataSources count]) {
+        return nil;
+    }
+    currentIndex += 1;
+    currentViewControllerIndex = currentIndex;
+    return [self detailViewControllerAt:currentIndex];
+}
+
+- (void) tapHighlightButton: (UITapGestureRecognizer*)sender {
+    UIView *view = sender.view;
+    UIViewController *vc = [self detailViewControllerAt:view.tag];
+    [pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
 @end

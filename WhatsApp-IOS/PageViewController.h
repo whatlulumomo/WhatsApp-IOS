@@ -1,5 +1,5 @@
 //
-//  HomeViewController.h
+//  PageViewController.h
 //  WhatsApp-IOS
 //
 //  Created by 葛帅琦 on 6/16/20.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController<UIPageViewControllerDelegate, UIPageViewControllerDataSource>
+@interface PageViewController : UIPageViewController
 
 @end
 

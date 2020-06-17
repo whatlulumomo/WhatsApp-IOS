@@ -7,7 +7,7 @@
 //
 
 #import "SceneDelegate.h"
-#import "ContractViewController.h"
+#import "ContractTableViewController.h"
 #import "HomeViewController.h"
 
 @interface SceneDelegate ()

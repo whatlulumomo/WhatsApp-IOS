@@ -8,22 +8,6 @@
 
 #import "ChatViewController.h"
 
-@interface UIImageView (Utils)
-
-- (void)setImageRenderingMode:(UIImageRenderingMode)renderMode;
-
-@end
-
-@implementation UIImageView (Utils)
-
-- (void)setImageRenderingMode:(UIImageRenderingMode)renderMode
-{
-    NSAssert(self.image, @"Image must be set before setting rendering mode");
-    self.image = [self.image imageWithRenderingMode:renderMode];
-}
-
-@end
-
 @interface ChatViewController ()
 
 @end
