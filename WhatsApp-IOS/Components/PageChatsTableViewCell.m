@@ -7,6 +7,7 @@
 //
 
 #import "PageChatsTableViewCell.h"
+#import "Color.h"
 
 @implementation PageChatsTableViewCell
 
@@ -35,7 +36,8 @@
         
         _messageLabel = UILabel.new;
         _messageLabel.text = @"Hey there! I'm using Whatsapp.";
-        [_messageLabel setTextColor: [UIColor colorWithRed:89/255.0 green:94/255.0 blue:98/255.0 alpha:1]];
+        [_messageLabel setTextColor: MessageGrayColor];
+        [_messageLabel setFont: [UIFont systemFontOfSize:16]];
         [_messageLabel sizeToFit];
         [_messageLabel setTranslatesAutoresizingMaskIntoConstraints: NO];
         
@@ -71,6 +73,7 @@
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-15-[avatar(==50)]-15-|" options:0 metrics:nil views:binding]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-18-[name(==20)]-4-[message(==20)]-18-|" options:NSLayoutFormatAlignAllLeading metrics:nil views:binding]];
         [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_timeLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_nameLabel attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_messageLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.timeLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
         
         [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:seperateLine attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
         [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:seperateLine attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];

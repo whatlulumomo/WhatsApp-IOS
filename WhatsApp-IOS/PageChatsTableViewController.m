@@ -8,9 +8,10 @@
 
 #import "PageChatsTableViewController.h"
 #import "PageChatsTableViewCell.h"
+#import "Person.h"
 
 @interface PageChatsTableViewController ()
-
+@property (strong, nonatomic) NSMutableArray<Person *> * peopleData;
 @end
 
 NSString *PageChatsTableCellId = @"PageChatsTableCellId";
@@ -21,6 +22,24 @@ NSString *PageChatsTableCellId = @"PageChatsTableCellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.separatorColor = [UIColor clearColor]; // remove seprator
+    _peopleData = [self readPeopleJson:@"Chats"];
+}
+
+- (NSMutableArray<Person *> *) readPeopleJson: (NSString*) jsonName {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:jsonName ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSMutableArray<Person *> *people = NSMutableArray.new;
+    for (NSDictionary *PersonDict in json) {
+        Person *person = Person.new;
+        person.name = PersonDict[@"name"];
+        person.imageUrl = PersonDict[@"imageUrl"];
+        person.message = PersonDict[@"message"];
+        person.time = PersonDict[@"time"];
+        NSLog(@"%@ %@ %@", person.name, person.message, person.time);
+        [people addObject:person];
+    }
+    return people;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -29,7 +48,7 @@ NSString *PageChatsTableCellId = @"PageChatsTableCellId";
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [_peopleData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -37,7 +56,10 @@ NSString *PageChatsTableCellId = @"PageChatsTableCellId";
     if (cell == nil) {
         cell = [[PageChatsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PageChatsTableCellId];
     }
-    [cell.avatarImageView setImage:[UIImage imageNamed:@"pikachu"]];
+    [cell.avatarImageView setImage:[UIImage imageNamed:_peopleData[indexPath.row].name]];
+    cell.nameLabel.text = _peopleData[indexPath.row].name;
+    cell.messageLabel.text = _peopleData[indexPath.row].message;
+    cell.timeLabel.text = _peopleData[indexPath.row].time;
     return cell;
 }
 

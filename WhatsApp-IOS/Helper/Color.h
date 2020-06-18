@@ -16,5 +16,6 @@
 #define ChatBackgroundColor [UIColor colorWithDisplayP3Red:236/255.0 green:229/255.0 blue:221/255.0  alpha:1]
 #define HighlightLightGreenColor [UIColor colorWithDisplayP3Red:152/255.0 green:227/255.0 blue:165/255.0  alpha:1]
 #define HighlightMaskColor [UIColor colorWithRed:1 green:1 blue:1 alpha:0.3]
+#define MessageGrayColor [UIColor colorWithRed:119/255.0 green:124/255.0 blue:128/255.0 alpha:1]
 
 #endif /* Color_h */

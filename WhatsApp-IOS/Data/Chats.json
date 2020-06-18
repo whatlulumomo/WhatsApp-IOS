@@ -1,0 +1,56 @@
+[
+{
+"name": "Mark Zuckerberg",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"message": "Hi! Welcome to Facebook.",
+"time": "6/16/20"
+},
+{
+"name": "Brad Cox",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"message": "How do you feel about Objective C?",
+"time": "6/15/20"
+},
+{
+"name": "Chris Lattner",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"message": "Swift is better than Objective-C. LOL. It's doubtless!",
+"time": "6/15/20"
+},
+{
+"name": "Jeff Bezos",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"message": "Amazon's banana is on sale.",
+"time": "6/14/20"
+},
+{
+"name": "Ryan Roslansky",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"message": "I'm hearing you lost job?",
+"time": "6/14/20"
+},
+{
+"name": "Elon Musk",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"message": "To be honest, I'm Iron Man.",
+"time": "6/13/20"
+},
+{
+"name": "Robert Downey Jr",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"message": "Hello, I'm Iron Man.",
+"time": "6/13/20"
+},
+{
+"name": "Professor Dumbledore",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"message": "You've been rejected by Hogwarts.",
+"time": "6/13/20"
+},
+{
+"name": "Gellert Grindelwald",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"message": "Join me!",
+"time": "6/12/20"
+},
+]

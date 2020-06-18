@@ -27,8 +27,7 @@ NSArray<NSLayoutConstraint *> *allConstraints;
         _avatarImageView = UIImageView.new;
 //        [_avatarImageView setBackgroundColor: UIColor.redColor];
         [_avatarImageView.layer setMasksToBounds: YES];
-        [_avatarImageView setContentMode: UIViewContentModeScaleAspectFit];
-//        [_avatarImageView setExclusiveTouch: YES];
+        [_avatarImageView setContentMode: UIViewContentModeScaleAspectFill];
         [_avatarImageView.layer setCornerRadius: 25];
         [_avatarImageView setTranslatesAutoresizingMaskIntoConstraints: NO];
         

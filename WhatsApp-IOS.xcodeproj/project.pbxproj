@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		865FF06B249816EE00E619AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF06A249816EE00E619AB /* AppDelegate.m */; };
 		865FF06E249816EE00E619AB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF06D249816EE00E619AB /* SceneDelegate.m */; };
-		865FF076249816F100E619AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865FF075249816F100E619AB /* Assets.xcassets */; };
 		865FF079249816F100E619AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865FF077249816F100E619AB /* LaunchScreen.storyboard */; };
 		865FF07C249816F100E619AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF07B249816F100E619AB /* main.m */; };
 		865FF0842498183100E619AB /* ContractTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF0822498183100E619AB /* ContractTableViewController.m */; };
@@ -22,6 +21,9 @@
 		86E40A35249BFC8E0056F598 /* FunctionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A34249BFC8E0056F598 /* FunctionTableViewCell.m */; };
 		86E40A38249C05EC0056F598 /* PageChatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A37249C05EC0056F598 /* PageChatsTableViewController.m */; };
 		86E40A3B249C0F8D0056F598 /* PageChatsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A3A249C0F8D0056F598 /* PageChatsTableViewCell.m */; };
+		86E40A3E249C1A400056F598 /* Chats.json in Resources */ = {isa = PBXBuildFile; fileRef = 86E40A3D249C1A400056F598 /* Chats.json */; };
+		86E40A41249C1C360056F598 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A40249C1C360056F598 /* Person.m */; };
+		86E40A44249C2C870056F598 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E40A43249C2C870056F598 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +32,6 @@
 		865FF06A249816EE00E619AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		865FF06C249816EE00E619AB /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		865FF06D249816EE00E619AB /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		865FF075249816F100E619AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		865FF078249816F100E619AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		865FF07A249816F100E619AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		865FF07B249816F100E619AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -55,6 +56,10 @@
 		86E40A37249C05EC0056F598 /* PageChatsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageChatsTableViewController.m; sourceTree = "<group>"; };
 		86E40A39249C0F8D0056F598 /* PageChatsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageChatsTableViewCell.h; sourceTree = "<group>"; };
 		86E40A3A249C0F8D0056F598 /* PageChatsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageChatsTableViewCell.m; sourceTree = "<group>"; };
+		86E40A3D249C1A400056F598 /* Chats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Chats.json; sourceTree = "<group>"; };
+		86E40A3F249C1C360056F598 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		86E40A40249C1C360056F598 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		86E40A43249C2C870056F598 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +104,14 @@
 				865FF0822498183100E619AB /* ContractTableViewController.m */,
 				865FF0892498509500E619AB /* ChatViewController.h */,
 				865FF08A2498509500E619AB /* ChatViewController.m */,
+				86E40A3F249C1C360056F598 /* Person.h */,
+				86E40A40249C1C360056F598 /* Person.m */,
 				86E40A30249A9B750056F598 /* Helper */,
 				865FF08824981C6B00E619AB /* Components */,
-				865FF075249816F100E619AB /* Assets.xcassets */,
+				86E40A3C249C1A130056F598 /* Data */,
 				865FF077249816F100E619AB /* LaunchScreen.storyboard */,
 				865FF07A249816F100E619AB /* Info.plist */,
+				86E40A43249C2C870056F598 /* Media.xcassets */,
 				865FF07B249816F100E619AB /* main.m */,
 			);
 			path = "WhatsApp-IOS";
@@ -134,6 +142,14 @@
 				86E40A31249A9B930056F598 /* Color.h */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		86E40A3C249C1A130056F598 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				86E40A3D249C1A400056F598 /* Chats.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +210,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				865FF079249816F100E619AB /* LaunchScreen.storyboard in Resources */,
-				865FF076249816F100E619AB /* Assets.xcassets in Resources */,
+				86E40A44249C2C870056F598 /* Media.xcassets in Resources */,
+				86E40A3E249C1A400056F598 /* Chats.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +224,7 @@
 			files = (
 				86E40A38249C05EC0056F598 /* PageChatsTableViewController.m in Sources */,
 				86E40A32249BDB790056F598 /* HighlightButtonView.m in Sources */,
+				86E40A41249C1C360056F598 /* Person.m in Sources */,
 				865FF06B249816EE00E619AB /* AppDelegate.m in Sources */,
 				865FF07C249816F100E619AB /* main.m in Sources */,
 				86E40A2F2499C25B0056F598 /* PopoverViewController.m in Sources */,
