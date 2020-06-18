@@ -25,7 +25,7 @@ NSArray<NSLayoutConstraint *> *allConstraints;
 //        [self setBackgroundColor: UIColor.blueColor];
         
         _avatarImageView = UIImageView.new;
-        [_avatarImageView setBackgroundColor: UIColor.redColor];
+//        [_avatarImageView setBackgroundColor: UIColor.redColor];
         [_avatarImageView.layer setMasksToBounds: YES];
         [_avatarImageView setContentMode: UIViewContentModeScaleAspectFit];
 //        [_avatarImageView setExclusiveTouch: YES];
@@ -36,7 +36,7 @@ NSArray<NSLayoutConstraint *> *allConstraints;
         _nameLabel.text = @"BestOreo";
         [_nameLabel setTextColor: UIColor.blackColor];
         [_nameLabel sizeToFit];
-        _nameLabel.font = [UIFont boldSystemFontOfSize:18];
+        _nameLabel.font = [UIFont boldSystemFontOfSize:19];
         [_nameLabel setTranslatesAutoresizingMaskIntoConstraints: NO];
         
         _messageLabel = UILabel.new;
@@ -56,9 +56,9 @@ NSArray<NSLayoutConstraint *> *allConstraints;
         };
         
 //        NSDictionary *metrics = @{@"height" : @(self.height)};
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[avatar(==50)]-20-[name(>=100)]" options:0 metrics:nil views:binding]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-15-[avatar(==50)]-15-|" options:0 metrics:nil views:binding]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-18-[name(==20)]-4-[message(==20)]-18-|" options:NSLayoutFormatAlignAllLeading metrics:nil views:binding]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[avatar(==50)]-20-[name(>=100)]" options:0 metrics:nil views:binding]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-11-[avatar(==50)]-11-|" options:0 metrics:nil views:binding]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-14-[name(==20)]-4-[message(==20)]-14-|" options:NSLayoutFormatAlignAllLeading metrics:nil views:binding]];
 
 
 //        NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem: _avatarImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:50];

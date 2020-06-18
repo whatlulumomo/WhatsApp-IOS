@@ -10,6 +10,7 @@
 #import "HighlightButtonView.h"
 #import "UIHighlightButton.h"
 #import "ContractTableViewController.h"
+#import "PageChatsTableViewController.h"
 #import "PopoverViewController.h"
 #import "Color.h"
 
@@ -50,7 +51,7 @@ UIHighlightButton *button;
     [self setNavigationBarRightButtons]; // navigation rightBarButtonItems
     
     [self initNavigatorView];
-    [self initDisplayView];
+    [self initPageControllerView];
     [self configConstrains];
     [self setFloatButton];
 }
@@ -97,8 +98,6 @@ UIHighlightButton *button;
 }
 
 - (void) setNavigationBarRightButtons {
-//    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"magnifyingglass"] style:UIBarButtonItemStylePlain target:self action:nil];
-//
     UIHighlightButton* seachButton = UIHighlightButton.new;
     [seachButton setTintColor:WhiteColor];
     seachButton.normalColor = DarkTealGreenColor;
@@ -108,7 +107,9 @@ UIHighlightButton *button;
     [seachButton setBackgroundImage:[UIImage systemImageNamed:@"magnifyingglass"] forState:UIControlStateNormal];
     UIBarButtonItem *searchBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:seachButton];
     
+    
     UIHighlightButton* moreButton = UIHighlightButton.new;
+    [moreButton addTarget:self action:@selector(tapPopoverMenu) forControlEvents:UIControlEventTouchUpInside];
     [moreButton setTintColor:WhiteColor];
     moreButton.normalColor = DarkTealGreenColor;
     moreButton.highlightMaskColor = HighlightMaskColor;
@@ -117,6 +118,11 @@ UIHighlightButton *button;
     UIImage *moreImage = [[UIImage imageNamed:@"icons-more"] imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
     [moreImage imageWithTintColor: WhiteColor];
     [moreButton setBackgroundImage:moreImage forState:UIControlStateNormal];
+    
+//    UIBarButtonItem *moreBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icons-more"] style:UIBarButtonItemStylePlain target:self action:@selector(hello)];
+//    [moreBarButtonItem setTintColor: WhiteColor];
+//    moreBarButtonItem.customView = moreButton;
+    
     UIBarButtonItem *moreBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
 
     self.navigationItem.rightBarButtonItems = @[moreBarButtonItem, searchBarButtonItem];
@@ -199,7 +205,7 @@ UIHighlightButton *button;
 }
 
 
-- (void) initDisplayView {
+- (void) initPageControllerView {
     _pageStatus = @[@"Camera", @"Chats", @"Status", @"Calls"];
     
     _displayView = UIView.new;
@@ -221,7 +227,7 @@ UIHighlightButton *button;
     [_displayView addConstraint: [NSLayoutConstraint constraintWithItem:pageViewController.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:_displayView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
     [_displayView addConstraint: [NSLayoutConstraint constraintWithItem:pageViewController.view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_displayView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
     
-    ContractTableViewController *startingViewController = (ContractTableViewController*)[self detailViewControllerAt:currentViewControllerIndex];
+    PageChatsTableViewController *startingViewController = (PageChatsTableViewController*)[self detailViewControllerAt:currentViewControllerIndex];
     startingViewController.view.tag = 0;
     [self focusHighlightButtonView: 0];
     if(startingViewController == nil){
@@ -236,7 +242,7 @@ UIHighlightButton *button;
         return nil;
     }
     
-    ContractTableViewController *detailViewController = ContractTableViewController.new;
+    PageChatsTableViewController *detailViewController = PageChatsTableViewController.new;
     if(detailViewController == nil){
         return nil;
     }
@@ -257,7 +263,7 @@ UIHighlightButton *button;
 //}
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    ContractTableViewController *vc = (ContractTableViewController*)viewController;
+    PageChatsTableViewController *vc = (PageChatsTableViewController*)viewController;
     NSInteger currentIndex = vc.view.tag;
     currentIndex -= 1;
     if (currentIndex < 0) {
@@ -267,7 +273,7 @@ UIHighlightButton *button;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    ContractTableViewController *vc = (ContractTableViewController*)viewController;
+    PageChatsTableViewController *vc = (PageChatsTableViewController*)viewController;
     NSInteger currentIndex = vc.view.tag;
     currentIndex += 1;
     if (currentIndex == [_pageStatus count]) {
@@ -298,7 +304,7 @@ UIHighlightButton *button;
 }
 
 - (void) tapHighlightButton: (UITapGestureRecognizer*)sender {
-    NSLog(@"%zd", currentViewControllerIndex);
+//    NSLog(@"%zd", currentViewControllerIndex);
     UIView *view = sender.view;
     NSInteger index = view.tag;
     if (index != currentViewControllerIndex){
@@ -315,6 +321,8 @@ UIHighlightButton *button;
 
 - (void) tapFloatButton: (UITapGestureRecognizer*)sender {
     NSLog(@"tapFloatButton");
+    ContractTableViewController *viewController = [[ContractTableViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void) focusHighlightButtonView: (NSInteger) index {
@@ -324,10 +332,11 @@ UIHighlightButton *button;
     [_navigatorButtonViews[index].highlightLine setBackgroundColor: WhiteColor];
 }
 
-- (void) tapPopoverMenu: (UITapGestureRecognizer*)sender {
+- (void) tapPopoverMenu {
+    NSLog(@"%f %f", self.view.bounds.size.width, self.view.bounds.size.height);
     NSLog(@"Pop Over");
-    UIViewController* controller = PopoverViewController.new; // your initialization goes here
-
+    PopoverViewController* controller = PopoverViewController.new; // your initialization goes here
+    controller.labelsArray = @[@"New group", @"New broadcase", @"WhatsApp Web", @"Starred messages", @"Settings"];
     // set modal presentation style to popover on your view controller
     // must be done before you reference controller.popoverPresentationController
     controller.modalPresentationStyle = UIModalPresentationPopover;
@@ -336,8 +345,8 @@ UIHighlightButton *button;
     // configure popover style & delegate
     UIPopoverPresentationController *popover =  controller.popoverPresentationController;
     popover.delegate = self;
-    popover.sourceView = sender.view;
-    popover.sourceRect = CGRectMake(sender.view.center.x,sender.view.center.y,0,0);
+    popover.sourceView = self.view;
+    popover.sourceRect = CGRectMake(self.view.bounds.size.width,0,0,0);
     popover.permittedArrowDirections = 0;
 
     // display the controller in the usual way

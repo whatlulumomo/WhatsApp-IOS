@@ -12,7 +12,7 @@
 
 @end
 
-#define labelsArray @[@"New group", @"New broadcase", @"WhatsApp Web", @"Starred messages", @"Settings"]
+//#define labelsArray @[@"New group", @"New broadcase", @"WhatsApp Web", @"Starred messages", @"Settings"]
 NSString *menuCellId = @"popoverCellId";
 
 @implementation PopoverViewController
@@ -23,7 +23,7 @@ NSString *menuCellId = @"popoverCellId";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [labelsArray count];
+    return [_labelsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -31,7 +31,9 @@ NSString *menuCellId = @"popoverCellId";
     if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:menuCellId];
     }
-    cell.textLabel.text = labelsArray[indexPath.row];
+    if(indexPath.row < _labelsArray.count){
+        cell.textLabel.text = _labelsArray[indexPath.row];
+    }
     return cell;
 }
 

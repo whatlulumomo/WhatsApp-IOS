@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PopoverViewController : UITableViewController
-
+@property (strong, nonatomic) NSArray<NSString *> *labelsArray;
 @end
 
 NS_ASSUME_NONNULL_END

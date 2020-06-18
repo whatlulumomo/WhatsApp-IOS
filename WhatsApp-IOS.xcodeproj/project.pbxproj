@@ -17,8 +17,11 @@
 		865FF08B2498509500E619AB /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF08A2498509500E619AB /* ChatViewController.m */; };
 		865FF091249930A400E619AB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF090249930A400E619AB /* HomeViewController.m */; };
 		865FF09A24995B6E00E619AB /* UIHighlightButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF09924995B6E00E619AB /* UIHighlightButton.m */; };
-		865FF09B249961D800E619AB /* HighlightButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF09324994A8400E619AB /* HighlightButtonView.m */; };
 		86E40A2F2499C25B0056F598 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A2E2499C25B0056F598 /* PopoverViewController.m */; };
+		86E40A32249BDB790056F598 /* HighlightButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 865FF09324994A8400E619AB /* HighlightButtonView.m */; };
+		86E40A35249BFC8E0056F598 /* FunctionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A34249BFC8E0056F598 /* FunctionTableViewCell.m */; };
+		86E40A38249C05EC0056F598 /* PageChatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A37249C05EC0056F598 /* PageChatsTableViewController.m */; };
+		86E40A3B249C0F8D0056F598 /* PageChatsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A3A249C0F8D0056F598 /* PageChatsTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,12 @@
 		86E40A2D2499C25B0056F598 /* PopoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
 		86E40A2E2499C25B0056F598 /* PopoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
 		86E40A31249A9B930056F598 /* Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		86E40A33249BFC8E0056F598 /* FunctionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionTableViewCell.h; sourceTree = "<group>"; };
+		86E40A34249BFC8E0056F598 /* FunctionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctionTableViewCell.m; sourceTree = "<group>"; };
+		86E40A36249C05EC0056F598 /* PageChatsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageChatsTableViewController.h; sourceTree = "<group>"; };
+		86E40A37249C05EC0056F598 /* PageChatsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageChatsTableViewController.m; sourceTree = "<group>"; };
+		86E40A39249C0F8D0056F598 /* PageChatsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageChatsTableViewCell.h; sourceTree = "<group>"; };
+		86E40A3A249C0F8D0056F598 /* PageChatsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageChatsTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +93,8 @@
 				865FF06D249816EE00E619AB /* SceneDelegate.m */,
 				865FF08F249930A400E619AB /* HomeViewController.h */,
 				865FF090249930A400E619AB /* HomeViewController.m */,
+				86E40A36249C05EC0056F598 /* PageChatsTableViewController.h */,
+				86E40A37249C05EC0056F598 /* PageChatsTableViewController.m */,
 				865FF0832498183100E619AB /* ContractTableViewController.h */,
 				865FF0822498183100E619AB /* ContractTableViewController.m */,
 				865FF0892498509500E619AB /* ChatViewController.h */,
@@ -103,6 +114,10 @@
 			children = (
 				865FF08524981C6600E619AB /* ContractTableViewCell.h */,
 				865FF08624981C6600E619AB /* ContractTableViewCell.m */,
+				86E40A33249BFC8E0056F598 /* FunctionTableViewCell.h */,
+				86E40A34249BFC8E0056F598 /* FunctionTableViewCell.m */,
+				86E40A39249C0F8D0056F598 /* PageChatsTableViewCell.h */,
+				86E40A3A249C0F8D0056F598 /* PageChatsTableViewCell.m */,
 				865FF09224994A8400E619AB /* HighlightButtonView.h */,
 				865FF09324994A8400E619AB /* HighlightButtonView.m */,
 				865FF09824995B6E00E619AB /* UIHighlightButton.h */,
@@ -190,15 +205,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				865FF09B249961D800E619AB /* HighlightButtonView.m in Sources */,
+				86E40A38249C05EC0056F598 /* PageChatsTableViewController.m in Sources */,
+				86E40A32249BDB790056F598 /* HighlightButtonView.m in Sources */,
 				865FF06B249816EE00E619AB /* AppDelegate.m in Sources */,
 				865FF07C249816F100E619AB /* main.m in Sources */,
 				86E40A2F2499C25B0056F598 /* PopoverViewController.m in Sources */,
+				86E40A35249BFC8E0056F598 /* FunctionTableViewCell.m in Sources */,
 				865FF09A24995B6E00E619AB /* UIHighlightButton.m in Sources */,
 				865FF08B2498509500E619AB /* ChatViewController.m in Sources */,
 				865FF08724981C6600E619AB /* ContractTableViewCell.m in Sources */,
 				865FF06E249816EE00E619AB /* SceneDelegate.m in Sources */,
 				865FF091249930A400E619AB /* HomeViewController.m in Sources */,
+				86E40A3B249C0F8D0056F598 /* PageChatsTableViewCell.m in Sources */,
 				865FF0842498183100E619AB /* ContractTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
