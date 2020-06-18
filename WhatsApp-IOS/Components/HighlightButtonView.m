@@ -8,6 +8,7 @@
 
 #import "HighlightButtonView.h"
 #import "UIHighlightButton.h"
+#import "Color.h"
 
 @implementation HighlightButtonView
 

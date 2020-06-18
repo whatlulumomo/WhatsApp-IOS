@@ -36,6 +36,12 @@ UIHighlightButton *button;
     [self setupView];
 }
 
+- (void)viewWillLayoutSubviews {
+    for(int i=0; i<[_navigatorButtonViews count]; i++){
+        _navigatorButtonViews[i].labelButton.boundSize = _navigatorButtonViews[i].bounds;
+    }
+}
+
 - (void) setupView {
     [self.view setBackgroundColor: WhiteColor];
     [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];    // remove the bottom line of navigation bar
@@ -57,10 +63,11 @@ UIHighlightButton *button;
     [button setImage:[UIImage imageNamed:@"ic_message"] forState: UIControlStateHighlighted];
     [button setImageEdgeInsets: UIEdgeInsetsMake(15, 15, 15, 15)];
     [button setFrame: CGRectMake(0, 0, radius*2, radius*2)];
+    button.rounded = YES;
     // set color
     [button setBackgroundColor: LightGreenColor];
     button.normalColor = LightGreenColor;
-    button.highlightColor = HighlightLightGreenColor;
+    button.highlightMaskColor = HighlightMaskColor;
     [button setTintColor: WhiteColor];
     // set zposition of view and corner radius
     [button.layer setZPosition: 1];
@@ -90,11 +97,29 @@ UIHighlightButton *button;
 }
 
 - (void) setNavigationBarRightButtons {
-    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"magnifyingglass"] style:UIBarButtonItemStylePlain target:self action:nil];
-    [searchButton setTintColor: WhiteColor];
-    UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icons-more"] style:UIBarButtonItemStylePlain target:self action:@selector(tapPopoverMenu:)];
-    [moreButton setTintColor: WhiteColor];
-    self.navigationItem.rightBarButtonItems = @[moreButton, searchButton];
+//    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"magnifyingglass"] style:UIBarButtonItemStylePlain target:self action:nil];
+//
+    UIHighlightButton* seachButton = UIHighlightButton.new;
+    [seachButton setTintColor:WhiteColor];
+    seachButton.normalColor = DarkTealGreenColor;
+    seachButton.highlightMaskColor = HighlightMaskColor;
+    seachButton.rounded = YES;
+    seachButton.frame = CGRectMake(0, 0, 25, 25);
+    [seachButton setBackgroundImage:[UIImage systemImageNamed:@"magnifyingglass"] forState:UIControlStateNormal];
+    UIBarButtonItem *searchBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:seachButton];
+    
+    UIHighlightButton* moreButton = UIHighlightButton.new;
+    [moreButton setTintColor:WhiteColor];
+    moreButton.normalColor = DarkTealGreenColor;
+    moreButton.highlightMaskColor = HighlightMaskColor;
+    moreButton.rounded = YES;
+    moreButton.frame = CGRectMake(0, 0, 25, 25);
+    UIImage *moreImage = [[UIImage imageNamed:@"icons-more"] imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
+    [moreImage imageWithTintColor: WhiteColor];
+    [moreButton setBackgroundImage:moreImage forState:UIControlStateNormal];
+    UIBarButtonItem *moreBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
+
+    self.navigationItem.rightBarButtonItems = @[moreBarButtonItem, searchBarButtonItem];
 }
 
 - (void) initNavigatorView {
@@ -134,12 +159,15 @@ UIHighlightButton *button;
     [_navigatorView addSubview: navigatorChatsButtonView];
     [_navigatorView addSubview: navigatorStatusButtonView];
     [_navigatorView addSubview: navigatorCallsButtonView];
-    
+        
     _navigatorButtonViews = @[navigatorCameraButtonView, navigatorChatsButtonView, navigatorStatusButtonView, navigatorCallsButtonView];
     for(int i=0; i<[_navigatorButtonViews count]; i++){
         UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                 action:@selector(tapHighlightButton:)];
         [_navigatorButtonViews[i].labelButton addGestureRecognizer:singleFingerTap];
+        _navigatorButtonViews[i].labelButton.rounded = NO;
+        _navigatorButtonViews[i].labelButton.normalColor = DarkTealGreenColor;
+        _navigatorButtonViews[i].labelButton.highlightMaskColor = HighlightMaskColor;
         _navigatorButtonViews[i].labelButton.tag = i;
     }
     

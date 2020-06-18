@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIHighlightButton : UIButton
 @property (strong, nonatomic) UIColor* normalColor;
-@property (strong, nonatomic) UIColor* highlightColor;
+@property (strong, nonatomic) UIColor* highlightMaskColor;
+@property CGRect boundSize;
+@property BOOL rounded;
 @end
 
 NS_ASSUME_NONNULL_END

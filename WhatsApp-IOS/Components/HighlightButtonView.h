@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIHighlightButton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HighlightButtonView : UIView
 
-@property UIButton *labelButton;
+@property UIHighlightButton *labelButton;
 @property UIView *highlightLine;
 
 @end

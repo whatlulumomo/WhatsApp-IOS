@@ -15,5 +15,6 @@
 #define LightGreenColor [UIColor colorWithDisplayP3Red:37/255.0 green:211/255.0 blue:102/255.0  alpha:1]
 #define ChatBackgroundColor [UIColor colorWithDisplayP3Red:236/255.0 green:229/255.0 blue:221/255.0  alpha:1]
 #define HighlightLightGreenColor [UIColor colorWithDisplayP3Red:152/255.0 green:227/255.0 blue:165/255.0  alpha:1]
+#define HighlightMaskColor [UIColor colorWithRed:1 green:1 blue:1 alpha:0.3]
 
 #endif /* Color_h */
