@@ -8,6 +8,7 @@
 
 #import "PageChatsTableViewController.h"
 #import "PageChatsTableViewCell.h"
+#import "ChatViewController.h"
 #import "Person.h"
 
 @interface PageChatsTableViewController ()
@@ -45,6 +46,11 @@ NSString *PageChatsTableCellId = @"PageChatsTableCellId";
     return 80;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ChatViewController *viewController = [[ChatViewController alloc] init];
+    viewController.name = _peopleData[indexPath.row].name;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_peopleData count];
@@ -64,5 +70,6 @@ NSString *PageChatsTableCellId = @"PageChatsTableCellId";
     }
     return cell;
 }
+
 
 @end

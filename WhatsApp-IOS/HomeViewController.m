@@ -122,12 +122,7 @@ UIHighlightButton *button;
     [moreImage imageWithTintColor: WhiteColor];
     [moreButton setBackgroundImage:moreImage forState:UIControlStateNormal];
     
-//    UIBarButtonItem *moreBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icons-more"] style:UIBarButtonItemStylePlain target:self action:@selector(hello)];
-//    [moreBarButtonItem setTintColor: WhiteColor];
-//    moreBarButtonItem.customView = moreButton;
-    
     UIBarButtonItem *moreBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
-
     self.navigationItem.rightBarButtonItems = @[moreBarButtonItem, searchBarButtonItem];
 }
 

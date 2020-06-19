@@ -7,6 +7,7 @@
 //
 
 #import "ChatViewController.h"
+#import "UIHighlightButton.h"
 #import "Color.h"
 
 @interface ChatViewController ()
@@ -17,11 +18,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNavigationBarLeftButtons];
+    [self setNavigationBarRightButtons];
     [self setupView];
 }
 
 - (void) setupView {
     [self.view setBackgroundColor: [UIColor colorWithRed:231/255.0 green:231/255.0 blue:231/255.0 alpha:1]];
+}
+
+- (void) setNavigationBarLeftButtons {
     // back button
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"arrow.left"]
                                                                    style:UIBarButtonItemStylePlain
@@ -33,7 +39,7 @@
     UIButton *avatarButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     // redraw the image to fit new size
     UIGraphicsBeginImageContextWithOptions(avatarButton.frame.size, NO, 0);
-    [[UIImage imageNamed:@"pikachu"] drawInRect:CGRectMake(0, 0, avatarButton.frame.size.width, avatarButton.frame.size.height)];
+    [[UIImage imageNamed:_name] drawInRect:CGRectMake(0, 0, avatarButton.frame.size.width, avatarButton.frame.size.height)];
     UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -43,20 +49,50 @@
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:avatarButton];
     
     // profile name
-    UIBarButtonItem *nameLabelButton = [[UIBarButtonItem alloc] initWithTitle:@"皮卡丘"
+    UIBarButtonItem *nameLabelButton = [[UIBarButtonItem alloc] initWithTitle:_name
                                                                      style:UIBarButtonItemStylePlain
                                                                     target:nil
                                                                     action:nil];
     [nameLabelButton setTintColor:WhiteColor];
     
     self.navigationItem.leftBarButtonItems = @[backButton, barButton, nameLabelButton];
+}
+
+- (void) setNavigationBarRightButtons {
+    UIHighlightButton* voiceCallButton = UIHighlightButton.new;
+    [voiceCallButton setTintColor:WhiteColor];
+    voiceCallButton.normalColor = DarkTealGreenColor;
+    voiceCallButton.highlightMaskColor = HighlightMaskColor;
+    voiceCallButton.rounded = YES;
+    voiceCallButton.frame = CGRectMake(0, 0, 20, 20);
+    [voiceCallButton setBackgroundImage:[[UIImage imageNamed:@"voicecall_1"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [voiceCallButton setContentMode: UIViewContentModeScaleAspectFit];
+    [voiceCallButton setTintColor: WhiteColor];
+    UIBarButtonItem *voiceCallBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:voiceCallButton];
     
-    UIBarButtonItem *searchBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"magnifyingglass"]
-                                                                  style:UIBarButtonItemStylePlain
-                                                                 target:self
-                                                                 action: nil];
-    [searchBtn setTintColor: WhiteColor];
-    self.navigationItem.rightBarButtonItem = searchBtn;
+    UIHighlightButton* videoCallButton = UIHighlightButton.new;
+    [videoCallButton setTintColor:WhiteColor];
+    videoCallButton.normalColor = DarkTealGreenColor;
+    videoCallButton.highlightMaskColor = HighlightMaskColor;
+    videoCallButton.rounded = YES;
+    videoCallButton.frame = CGRectMake(0, 0, 20, 20);
+    [videoCallButton setBackgroundImage:[[UIImage imageNamed:@"videocall_1"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [videoCallButton setContentMode: UIViewContentModeScaleAspectFit];
+    [videoCallButton setTintColor: WhiteColor];
+    UIBarButtonItem *videoCallBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:videoCallButton];
+    
+    UIHighlightButton* moreButton = UIHighlightButton.new;
+    [moreButton setTintColor:WhiteColor];
+    moreButton.normalColor = DarkTealGreenColor;
+    moreButton.highlightMaskColor = HighlightMaskColor;
+    moreButton.rounded = YES;
+    moreButton.frame = CGRectMake(0, 0, 20, 20);
+    UIImage *moreImage = [[UIImage imageNamed:@"icons-more_1"] imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
+    [moreImage imageWithTintColor: WhiteColor];
+    [moreButton setBackgroundImage:moreImage forState:UIControlStateNormal];
+    UIBarButtonItem *moreBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
+   
+    self.navigationItem.rightBarButtonItems = @[moreBarButtonItem, voiceCallBarButtonItem, videoCallBarButtonItem];
 }
 
 @end

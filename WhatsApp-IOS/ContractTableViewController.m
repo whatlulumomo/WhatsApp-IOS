@@ -144,7 +144,11 @@ int tableviewCount = 5;
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row < 2){
+        return;
+    }
     ChatViewController *viewController = [[ChatViewController alloc] init];
+    viewController.name = _peopleData[indexPath.row-2].name;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
