@@ -29,6 +29,7 @@
 		86E40A4D249C46610056F598 /* PageCallsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A4C249C46610056F598 /* PageCallsTableViewCell.m */; };
 		86E40A4F249D0AFF0056F598 /* Calls.json in Resources */ = {isa = PBXBuildFile; fileRef = 86E40A4E249D0AFF0056F598 /* Calls.json */; };
 		86E40A52249D0BD50056F598 /* Call.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A51249D0BD50056F598 /* Call.m */; };
+		86E40A55249D27370056F598 /* TBDFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E40A54249D27370056F598 /* TBDFullScreenViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,8 @@
 		86E40A4E249D0AFF0056F598 /* Calls.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Calls.json; sourceTree = "<group>"; };
 		86E40A50249D0BD50056F598 /* Call.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Call.h; sourceTree = "<group>"; };
 		86E40A51249D0BD50056F598 /* Call.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Call.m; sourceTree = "<group>"; };
+		86E40A53249D27370056F598 /* TBDFullScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBDFullScreenViewController.h; sourceTree = "<group>"; };
+		86E40A54249D27370056F598 /* TBDFullScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBDFullScreenViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				86E40A49249C45690056F598 /* PageCallsTableViewController.m */,
 				865FF0832498183100E619AB /* ContractTableViewController.h */,
 				865FF0822498183100E619AB /* ContractTableViewController.m */,
+				86E40A53249D27370056F598 /* TBDFullScreenViewController.h */,
+				86E40A54249D27370056F598 /* TBDFullScreenViewController.m */,
 				865FF0892498509500E619AB /* ChatViewController.h */,
 				865FF08A2498509500E619AB /* ChatViewController.m */,
 				86E40A30249A9B750056F598 /* Helper */,
@@ -260,6 +265,7 @@
 				865FF08724981C6600E619AB /* ContractTableViewCell.m in Sources */,
 				865FF06E249816EE00E619AB /* SceneDelegate.m in Sources */,
 				86E40A47249C39580056F598 /* PageStatusTableViewController.m in Sources */,
+				86E40A55249D27370056F598 /* TBDFullScreenViewController.m in Sources */,
 				86E40A4A249C45690056F598 /* PageCallsTableViewController.m in Sources */,
 				865FF091249930A400E619AB /* HomeViewController.m in Sources */,
 				86E40A3B249C0F8D0056F598 /* PageChatsTableViewCell.m in Sources */,

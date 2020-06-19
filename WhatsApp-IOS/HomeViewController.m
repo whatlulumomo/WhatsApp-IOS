@@ -15,6 +15,7 @@
 #import "PageCallsTableViewController.h"
 #import "PopoverViewController.h"
 #import "Color.h"
+#import "TBDFullScreenViewController.h"
 
 
 @interface HomeViewController ()
@@ -26,7 +27,7 @@
 
 @implementation HomeViewController
 
-NSInteger currentViewControllerIndex = 0;
+NSInteger currentViewControllerIndex = 1;
 UIPageViewController *pageViewController;
 UIHighlightButton *button;
 
@@ -230,8 +231,8 @@ UIHighlightButton *button;
     [_displayView addConstraint: [NSLayoutConstraint constraintWithItem:pageViewController.view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_displayView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
     
     UIViewController *startingViewController = [self detailViewControllerAt:currentViewControllerIndex];
-    startingViewController.view.tag = 0;
-    [self focusHighlightButtonView: 0];
+    startingViewController.view.tag = currentViewControllerIndex;
+    [self focusHighlightButtonView: currentViewControllerIndex];
     if(startingViewController == nil){
         return;
     }
@@ -245,7 +246,9 @@ UIHighlightButton *button;
     }
     
     UIViewController *detailViewController;
-    if(index == 2){
+    if(index == 0){
+        detailViewController = TBDFullScreenViewController.new;
+    }else if(index == 2){
         detailViewController = PageStatusTableViewController.new;
     }else if(index == 3){
         detailViewController = PageCallsTableViewController.new;
@@ -279,6 +282,11 @@ UIHighlightButton *button;
     if (currentIndex < 0) {
         return nil;
     }
+    if (currentIndex == 0){
+        [self showTBDController];
+        currentViewControllerIndex = 1;
+        return [self detailViewControllerAt:1];
+    }
     return [self detailViewControllerAt:currentIndex];
 }
 
@@ -300,7 +308,13 @@ UIHighlightButton *button;
     }
 }
 
-- (void) updateFloatButton {
+- (void)showTBDController {
+    TBDFullScreenViewController *vc = TBDFullScreenViewController.new;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen; //or .overFullScreen for transparency
+    [self presentViewController:vc animated:NO completion:nil];
+}
+
+- (void)updateFloatButton {
     if([_pageStatus[currentViewControllerIndex] isEqualToString:@"Status"]) {
         [button setImage:[UIImage imageNamed:@"ic_camera"] forState: UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"ic_camera"] forState: UIControlStateHighlighted];
@@ -317,6 +331,10 @@ UIHighlightButton *button;
 //    NSLog(@"%zd", currentViewControllerIndex);
     UIView *view = sender.view;
     NSInteger index = view.tag;
+    if(index == 0){
+        [self showTBDController];
+        index = 1;
+    }
     if (index != currentViewControllerIndex){
         // page moving direction depends on relative position of current page and target page
         UIPageViewControllerNavigationDirection direction = index > currentViewControllerIndex ?
@@ -330,8 +348,14 @@ UIHighlightButton *button;
 }
 
 - (void) tapFloatButton: (UITapGestureRecognizer*)sender {
-    ContractTableViewController *viewController = [[ContractTableViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
+    if(currentViewControllerIndex == 1){
+        ContractTableViewController *viewController = [[ContractTableViewController alloc] init];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }else{
+        TBDFullScreenViewController *vc = TBDFullScreenViewController.new;
+        vc.modalPresentationStyle = UIModalPresentationFullScreen; //or .overFullScreen for transparency
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 - (void) focusHighlightButtonView: (NSInteger) index {

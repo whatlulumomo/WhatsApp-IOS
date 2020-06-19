@@ -22,6 +22,10 @@ NSString* PageStatusTableCeilId = @"PageStatusTableCeilId";
     self.tableView.separatorColor = [UIColor clearColor]; // remove seprator
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
