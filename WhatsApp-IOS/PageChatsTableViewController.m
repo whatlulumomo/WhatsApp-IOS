@@ -36,7 +36,6 @@ NSString *PageChatsTableCellId = @"PageChatsTableCellId";
         person.imageUrl = PersonDict[@"imageUrl"];
         person.message = PersonDict[@"message"];
         person.time = PersonDict[@"time"];
-        NSLog(@"%@ %@ %@", person.name, person.message, person.time);
         [people addObject:person];
     }
     return people;
@@ -60,6 +59,9 @@ NSString *PageChatsTableCellId = @"PageChatsTableCellId";
     cell.nameLabel.text = _peopleData[indexPath.row].name;
     cell.messageLabel.text = _peopleData[indexPath.row].message;
     cell.timeLabel.text = _peopleData[indexPath.row].time;
+    if(indexPath.row == [_peopleData count] - 1){
+        [cell.seperateLine removeFromSuperview];
+    }
     return cell;
 }
 

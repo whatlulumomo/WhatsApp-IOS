@@ -16,21 +16,17 @@
 
 - (void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
-    NSLog(@"highlighted");
     if(_normalColor == nil || _highlightMaskColor == nil){
-        NSLog(@"default");
         if (highlighted) {
             self.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.1];
         } else {
             self.backgroundColor = [UIColor colorWithRed:6/255.0 green:95/255.0 blue:84/255.0 alpha:1.0];
         }
     }else{
-        NSLog(@"custom");
         // init mask view
         if(_maskview == nil){
             self.backgroundColor = _normalColor;
             if(CGRectIsEmpty(_boundSize)){
-                NSLog(@"CGRectIsEmpty");
                 _boundSize = self.bounds;
             }
             _maskview = [[UIView alloc]initWithFrame:CGRectMake(_boundSize.size.width/2, _boundSize.size.height/2, 0, 0)];

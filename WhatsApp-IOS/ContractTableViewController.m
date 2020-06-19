@@ -13,8 +13,10 @@
 #import "UIHighlightButton.h"
 #import "PopoverViewController.h"
 #import "Color.h"
+#import "Person.h"
 
 @interface ContractTableViewController ()
+@property (strong, nonatomic) NSMutableArray<Person *> * peopleData;
 @end
 
 NSString *cellId = @"cellId";
@@ -24,6 +26,7 @@ int tableviewCount = 5;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _peopleData = [self readPeopleJson:@"Chats"];
     [self setupView];
 }
 
@@ -105,7 +108,7 @@ int tableviewCount = 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [_peopleData count] + 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,16 +136,32 @@ int tableviewCount = 5;
     ContractTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[ContractTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell.nameLabel.text = _peopleData[indexPath.row - 2].name;
+        [cell.avatarImageView setImage:[UIImage imageNamed:_peopleData[indexPath.row - 2].name]];
     }
-    [cell.avatarImageView setImage:[UIImage imageNamed:@"pikachu"]];
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%zd", indexPath.row);
     ChatViewController *viewController = [[ChatViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (NSMutableArray<Person *> *) readPeopleJson: (NSString*) jsonName {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:jsonName ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSMutableArray<Person *> *people = NSMutableArray.new;
+    for (NSDictionary *PersonDict in json) {
+        Person *person = Person.new;
+        person.name = PersonDict[@"name"];
+        person.imageUrl = PersonDict[@"imageUrl"];
+        person.message = PersonDict[@"message"];
+        person.time = PersonDict[@"time"];
+        [people addObject:person];
+    }
+    return people;
 }
 
 - (void) tapPopoverMenu {

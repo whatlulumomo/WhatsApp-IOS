@@ -1,0 +1,37 @@
+[
+{
+"name": "Mark Zuckerberg",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"type": "Incall",
+"callType": "Voicecall",
+"time": "June 16, 8:57 PM",
+},
+{
+"name": "Brad Cox",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"type": "Incall",
+"time": "June 16, 4:22 PM",
+"callType": "Videocall",
+},
+{
+"name": "Chris Lattner",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"message": "Swift is better than Objective-C. LOL. It's doubtless!",
+"time": "June 14, 3:50 PM",
+"callType": "Voicecall",
+},
+{
+"name": "Jeff Bezos",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"type": "Outcall",
+"time": "June 12, 9:50 AM",
+"callType": "Videocall",
+},
+{
+"name": "Ryan Roslansky",
+"imageUrl": "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/fd78be85-b845-4672-a316-7df0abe80812_medium",
+"type": "Misscall",
+"time": "June 11, 11:23 AM",
+"callType": "Videocall",
+}
+]

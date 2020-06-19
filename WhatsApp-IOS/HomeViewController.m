@@ -11,6 +11,8 @@
 #import "UIHighlightButton.h"
 #import "ContractTableViewController.h"
 #import "PageChatsTableViewController.h"
+#import "PageStatusTableViewController.h"
+#import "PageCallsTableViewController.h"
 #import "PopoverViewController.h"
 #import "Color.h"
 
@@ -227,7 +229,7 @@ UIHighlightButton *button;
     [_displayView addConstraint: [NSLayoutConstraint constraintWithItem:pageViewController.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:_displayView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
     [_displayView addConstraint: [NSLayoutConstraint constraintWithItem:pageViewController.view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_displayView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
     
-    PageChatsTableViewController *startingViewController = (PageChatsTableViewController*)[self detailViewControllerAt:currentViewControllerIndex];
+    UIViewController *startingViewController = [self detailViewControllerAt:currentViewControllerIndex];
     startingViewController.view.tag = 0;
     [self focusHighlightButtonView: 0];
     if(startingViewController == nil){
@@ -242,7 +244,15 @@ UIHighlightButton *button;
         return nil;
     }
     
-    PageChatsTableViewController *detailViewController = PageChatsTableViewController.new;
+    UIViewController *detailViewController;
+    if(index == 2){
+        detailViewController = PageStatusTableViewController.new;
+    }else if(index == 3){
+        detailViewController = PageCallsTableViewController.new;
+    }else{
+        detailViewController = PageChatsTableViewController.new;
+    }
+    
     if(detailViewController == nil){
         return nil;
     }
@@ -320,7 +330,6 @@ UIHighlightButton *button;
 }
 
 - (void) tapFloatButton: (UITapGestureRecognizer*)sender {
-    NSLog(@"tapFloatButton");
     ContractTableViewController *viewController = [[ContractTableViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -333,8 +342,6 @@ UIHighlightButton *button;
 }
 
 - (void) tapPopoverMenu {
-    NSLog(@"%f %f", self.view.bounds.size.width, self.view.bounds.size.height);
-    NSLog(@"Pop Over");
     PopoverViewController* controller = PopoverViewController.new; // your initialization goes here
     controller.labelsArray = @[@"New group", @"New broadcase", @"WhatsApp Web", @"Starred messages", @"Settings"];
     // set modal presentation style to popover on your view controller

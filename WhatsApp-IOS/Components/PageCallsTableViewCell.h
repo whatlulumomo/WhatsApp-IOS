@@ -1,5 +1,5 @@
 //
-//  PageChatsTableViewCell.h
+//  PageCallsTableViewCell.h
 //  WhatsApp-IOS
 //
 //  Created by 葛帅琦 on 6/18/20.
@@ -10,14 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PageChatsTableViewCell : UITableViewCell {
+@interface PageCallsTableViewCell : UITableViewCell {
     NSString *reuseID;
 }
 
 @property UIImageView *avatarImageView;
 @property UILabel *nameLabel;
-@property UILabel *messageLabel;
 @property UILabel *timeLabel;
+@property UIImageView *inOutLabel;
+@property UIImageView *callTypeLabel;
 @property UIView *seperateLine;
 
 @end

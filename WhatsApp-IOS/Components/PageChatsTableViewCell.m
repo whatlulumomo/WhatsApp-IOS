@@ -49,23 +49,23 @@
         [_timeLabel sizeToFit];
         [_timeLabel setTranslatesAutoresizingMaskIntoConstraints: NO];
         
-        UIView *seperateLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
-        [seperateLine setBackgroundColor: [UIColor colorWithDisplayP3Red:238/255.0 green:238/255.0 blue:238/255.0 alpha:1]];
-        [seperateLine setTranslatesAutoresizingMaskIntoConstraints: NO];
-        [seperateLine.layer setZPosition: 1];
+        _seperateLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
+        [_seperateLine setBackgroundColor: [UIColor colorWithDisplayP3Red:238/255.0 green:238/255.0 blue:238/255.0 alpha:1]];
+        [_seperateLine setTranslatesAutoresizingMaskIntoConstraints: NO];
+        [_seperateLine.layer setZPosition: 1];
         
         [self.contentView addSubview: _avatarImageView];
         [self.contentView addSubview: _nameLabel];
         [self.contentView addSubview: _messageLabel];
         [self.contentView addSubview: _timeLabel];
-        [self.contentView addSubview: seperateLine];
+        [self.contentView addSubview: _seperateLine];
         
         NSDictionary *binding = @{
             @"avatar" : self.avatarImageView,
             @"name" : self.nameLabel,
             @"message" : self.messageLabel,
             @"time": self.timeLabel,
-            @"seperate": seperateLine
+            @"seperate": _seperateLine
         };
         
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[avatar(==50)]-20-[name(>=100)]" options:0 metrics:nil views:binding]];
@@ -75,10 +75,10 @@
         [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_timeLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_nameLabel attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
         [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_messageLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.timeLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
         
-        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:seperateLine attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
-        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:seperateLine attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:seperateLine attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.timeLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
-        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:seperateLine attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:1]];
+        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_seperateLine attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
+        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_seperateLine attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_seperateLine attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.timeLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
+        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_seperateLine attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:1]];
 //        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:seperateLine attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_nameLabel attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
 //        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:seperateLine attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:_timeLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
 
